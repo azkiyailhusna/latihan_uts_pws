@@ -11,7 +11,14 @@ export default defineConfig({
                 'resources/js/app.js',
                 'resources/js/passkeys.js',
             ],
-            refresh: true,
+            publicDirectory: '../backend/public',
+            ssrOutputDirectory: '../backend/bootstrap/ssr',
+            refresh: [
+                'resources/views/**',
+                '../backend/app/Livewire/**',
+                '../backend/app/View/Components/**',
+                '../backend/routes/**',
+            ],
             fonts: [
                 bunny('Instrument Sans', {
                     weights: [400, 500, 600],
@@ -29,6 +36,7 @@ export default defineConfig({
                 '**/.cursor/**',
                 '**/.junie/**',
                 '**/storage/framework/views/**',
+                '**/backend/storage/**',
                 '**/vendor/**',
             ],
         },
